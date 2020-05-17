@@ -21,16 +21,19 @@ public class BobAndQueries {
                 switch (x) {
                     case 1:
                         Integer value = segmentTree.getElement(y);
+                        int result = segmentTree.query(y, y);
                         value = value == null ? 0 : value;
-                        segmentTree.setElement(y, (value << 1) | 1);
+                        segmentTree.setElement(y, (value << 1) | 1,result+1);
                         break;
                     case 2:
                         value = segmentTree.getElement(y);
+                        result = segmentTree.query(y, y);
+                        result = (value&1)==1?result-1:result;
                         value = value == null ? 0 : value;
-                        segmentTree.setElement(y, value >> 1);
+                        segmentTree.setElement(y, value >> 1,result);
                         break;
                     case 3:
-                        int result = segmentTree.query(y, z);
+                        result = segmentTree.query(y, z);
                         results.add(result);
                         break;
                 }
