@@ -1,16 +1,14 @@
 package io.raveerocks.github.operations.binary.math.integer.binary;
 
-import io.raveerocks.github.operations.binary.BinaryOperator;
+import io.raveerocks.github.operations.binary.AbstractBinaryOperator;
 
-public class SetBitCount implements BinaryOperator<Integer, Integer> {
+public class SetBitCount extends AbstractBinaryOperator<Integer, Integer> {
 
     private static Integer DEFAULT_VALUE = 0;
 
     @Override
     public Integer apply(Integer number1, Integer number2) {
-        number1 = number1 == null ? DEFAULT_VALUE : number1;
-        number2 = number2 == null ? DEFAULT_VALUE : number2;
-        return number1 + number2;
+        return getDefaultOnNull(number1) + getDefaultOnNull(number2);
     }
 
     public Integer apply(Integer number) {
@@ -21,11 +19,6 @@ public class SetBitCount implements BinaryOperator<Integer, Integer> {
     @Override
     public Integer getDefaultValue() {
         return DEFAULT_VALUE;
-    }
-
-    @Override
-    public Class getResultType() {
-        return Integer.class;
     }
 
 

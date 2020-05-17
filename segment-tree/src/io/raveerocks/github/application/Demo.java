@@ -1,6 +1,6 @@
 package io.raveerocks.github.application;
 
-import io.raveerocks.github.operations.binary.BinaryOperations;
+import io.raveerocks.github.operations.binary.BinaryOperatorBuilder;
 import io.raveerocks.github.operations.binary.BinaryOperator;
 import io.raveerocks.github.trees.SegmentTree;
 import io.raveerocks.github.trees.array.CollectiveArraySegmentTree;
@@ -9,10 +9,10 @@ public class Demo {
     public static void main(String[] args) {
         Integer[] numbers = {2,4,8,10,15,20,35,7,28,8,22,87,1};
         BinaryOperator[] operators = new BinaryOperator[4];
-        operators[0] = BinaryOperations.getIntegerAddition();
-        operators[1] = BinaryOperations.getGCD();
-        operators[2] = BinaryOperations.getIntegerMaximum();
-        operators[3] = BinaryOperations.getIntegerMinimum();
+        operators[0] = BinaryOperatorBuilder.getIntegerAddition();
+        operators[1] = BinaryOperatorBuilder.getGCD();
+        operators[2] = BinaryOperatorBuilder.getIntegerMaximum();
+        operators[3] = BinaryOperatorBuilder.getIntegerMinimum();
 
         SegmentTree<Integer,Object[]> segmentTree = new CollectiveArraySegmentTree<>(numbers,operators);
         for (int i=0; i<numbers.length; i++){

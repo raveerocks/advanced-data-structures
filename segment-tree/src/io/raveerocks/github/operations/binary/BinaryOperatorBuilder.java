@@ -6,8 +6,9 @@ import io.raveerocks.github.operations.binary.string.Concatenate;
 import io.raveerocks.github.operations.binary.math.integer.Addition;
 import io.raveerocks.github.operations.binary.math.integer.GCD;
 import io.raveerocks.github.operations.binary.math.integer.binary.SetBitCount;
+import io.raveerocks.github.operations.binary.string.CountCharacter;
 
-public class BinaryOperations {
+public class BinaryOperatorBuilder {
     public static GCD getGCD() {
         return GCD.getGCD();
     }
@@ -24,4 +25,5 @@ public class BinaryOperations {
         return Concatenate.getPrefix();
     }
     public static SetBitCount getBinarySetBitCount(){return SetBitCount.getBinarySetBitCount();};
+    public static CountCharacter getCountCharacter(){return CountCharacter.getCountCharacter();}
 }

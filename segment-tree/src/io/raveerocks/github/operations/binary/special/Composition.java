@@ -1,8 +1,9 @@
 package io.raveerocks.github.operations.binary.special;
 
+import io.raveerocks.github.operations.binary.AbstractBinaryOperator;
 import io.raveerocks.github.operations.binary.BinaryOperator;
 
-public class Composition implements BinaryOperator<Object,Object> {
+public class Composition extends AbstractBinaryOperator<Object,Object> {
 
     BinaryOperator operator1,operator2;
 
@@ -21,11 +22,6 @@ public class Composition implements BinaryOperator<Object,Object> {
     @Deprecated
     public Object apply(Object element1, Object element2) {
         return null;
-    }
-
-    @Override
-    public Class getResultType() {
-        return Object.class;
     }
 
     @Override

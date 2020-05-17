@@ -5,8 +5,6 @@ public interface BinaryOperator<T, U> {
 
     U apply(U element1, U element2);
 
-    Class getResultType();
-
     default U apply(T element) {
         return element == null ? getDefaultValue() : (U) element;
     }

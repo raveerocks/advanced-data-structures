@@ -1,25 +1,18 @@
 package io.raveerocks.github.operations.binary.math.integer;
 
-import io.raveerocks.github.operations.binary.BinaryOperator;
+import io.raveerocks.github.operations.binary.AbstractBinaryOperator;
 
-public class Maximum implements BinaryOperator<Integer,Integer> {
+public class Maximum extends AbstractBinaryOperator<Integer,Integer> {
     private static Integer DEFAULT_VALUE = Integer.MIN_VALUE;
 
     @Override
     public Integer apply(Integer number1, Integer number2) {
-        number1 = number1==null?DEFAULT_VALUE:number1;
-        number2 = number2==null?DEFAULT_VALUE:number2;
-        return Math.max(number1,number2);
+        return Math.max(getDefaultOnNull(number1),getDefaultOnNull(number2));
     }
 
     @Override
     public Integer getDefaultValue() {
         return DEFAULT_VALUE;
-    }
-
-    @Override
-    public Class getResultType() {
-        return Integer.class;
     }
 
     private Maximum(){ }
