@@ -10,8 +10,8 @@ public class Prefix implements BinaryOperator<String,String> {
         s1 = s1==null?DEFAULT_VALUE:s1;
         s2 = s2==null?DEFAULT_VALUE:s2;
         StringBuilder sb = new StringBuilder();
-        int i=0;
-        while (s1.charAt(i)==s2.charAt(i)){
+        int i=0,length=Math.min(s1.length(),s2.length());
+        while (i<length && s1.charAt(i)==s2.charAt(i)){
             sb.append(s1.charAt(i));
             ++i;
         }
