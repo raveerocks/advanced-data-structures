@@ -8,13 +8,13 @@ import io.raveerocks.github.trees.array.CollectiveArraySegmentTree;
 public class Demo {
     public static void main(String[] args) {
         Integer[] numbers = {2,4,8,10,15,20,35,7,28,8,22,87,1};
-        BinaryOperator[] operators = new BinaryOperator[4];
-        operators[0] = BinaryOperatorBuilder.getIntegerAddition();
-        operators[1] = BinaryOperatorBuilder.getGCD();
-        operators[2] = BinaryOperatorBuilder.getIntegerMaximum();
-        operators[3] = BinaryOperatorBuilder.getIntegerMinimum();
 
-        SegmentTree<Integer,Object[]> segmentTree = new CollectiveArraySegmentTree<>(numbers,operators);
+        SegmentTree<Integer,Object[]> segmentTree = new CollectiveArraySegmentTree<>(numbers,
+                BinaryOperatorBuilder.getIntegerAddition(),
+                BinaryOperatorBuilder.getGCD(),
+                BinaryOperatorBuilder.getIntegerMaximum(),
+                BinaryOperatorBuilder.getIntegerMinimum());
+
         for (int i=0; i<numbers.length; i++){
             for (int j=i; j<numbers.length; j++){
                 Object[] result = segmentTree.query(i,j);

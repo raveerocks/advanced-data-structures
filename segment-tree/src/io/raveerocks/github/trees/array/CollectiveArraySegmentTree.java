@@ -14,12 +14,12 @@ public class CollectiveArraySegmentTree<T> implements CollectiveSegmentTree<T> {
     private Object[][] tree;
     private int size;
 
-    public CollectiveArraySegmentTree(T[] elements, BinaryOperator[] operations) {
+    public CollectiveArraySegmentTree(T[] elements, BinaryOperator... operations) {
         build(elements,operations);
     }
 
     @Override
-    public CollectiveArraySegmentTree build(T[] elements, BinaryOperator[] operations) {
+    public CollectiveArraySegmentTree build(T[] elements, BinaryOperator... operations) {
         if (elements.length>MAX_ARRAY_SIZE){
             throw new OutOfMemoryError("Segment tree size cannot exceed "+ MAX_ARRAY_SIZE);
         }
