@@ -41,7 +41,7 @@ public class BobAndQueries {
     }
 
     public static void main(String[] args) {
-        io.raveerocks.github.application.bobAndQueries.src.BobAndQueries bobAndQueries = new io.raveerocks.github.application.bobAndQueries.src.BobAndQueries();
+        BobAndQueries bobAndQueries = new BobAndQueries();
         int [][] B = {{1, 1, -1}, {1, 2, -1}, {1, 3, -1}, {3, 1, 3}, {3, 2, 4}};
         ArrayList<Integer> results = bobAndQueries.solve(5,B);
         System.out.println(results);

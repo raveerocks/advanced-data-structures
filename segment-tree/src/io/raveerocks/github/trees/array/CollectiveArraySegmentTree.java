@@ -68,7 +68,7 @@ public class CollectiveArraySegmentTree<T> implements CollectiveSegmentTree<T> {
         return query(0,0,elements.length-1,beginIndex,endIndex);
     }
 
-    private CollectiveArraySegmentTree build(int index, int beginIndex, int endIndex){
+    private CollectiveArraySegmentTree build(int index,int beginIndex, int endIndex){
         if (beginIndex==endIndex){
             for (int i=0; i<operationSize;i++){
                 this.tree[index] [i]= operations[i].apply(this.elements[beginIndex]);
@@ -126,7 +126,7 @@ public class CollectiveArraySegmentTree<T> implements CollectiveSegmentTree<T> {
         int leftChild = (index<<1)+1;
         int rightChild = (index<<1)+2;
 
-        Object leftQuery = null, rightQuery = null;
+        Object[] leftQuery = new Object[operationSize], rightQuery = new Object[operationSize];
         if (beginIndex <=middle) {
             leftQuery = query(leftChild, leftBoundary, middle, beginIndex, Math.min(middle, endIndex));
         }
@@ -135,7 +135,7 @@ public class CollectiveArraySegmentTree<T> implements CollectiveSegmentTree<T> {
         }
 
         for (int i=0; i<operationSize; i++){
-            result[i] = operations[i].apply(leftQuery,rightQuery);
+            result[i] = operations[i].apply(leftQuery[i],rightQuery[i]);
         }
         return result;
     }
