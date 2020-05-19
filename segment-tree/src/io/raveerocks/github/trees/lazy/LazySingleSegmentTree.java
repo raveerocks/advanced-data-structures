@@ -12,7 +12,7 @@ public class LazySingleSegmentTree<T,U> implements SingleSegmentTree<T,U> {
 
 
     private static final int DEFAULT_SCALING_FACTOR = 4;
-    private static final int MAX_ARRAY_SIZE = 25000000;
+    private static final int MAX_ARRAY_SIZE = 100000000;
 
     private T[] elements;
     private boolean[] isInserted;
@@ -27,15 +27,12 @@ public class LazySingleSegmentTree<T,U> implements SingleSegmentTree<T,U> {
     }
 
     public LazySingleSegmentTree(int length, BinaryOperator<T,U> operation, U defaultValue){
-        if (length > MAX_ARRAY_SIZE) {
-            throw new OutOfMemoryError("Segment tree size cannot exceed " + MAX_ARRAY_SIZE);
-        }
         this.operation = operation;
         this.defaultValue=defaultValue;
         this.elements = (T[])new Object[length];
         Arrays.fill(elements,defaultValue);
         this.isInserted = new boolean[length];
-        this.size = DEFAULT_SCALING_FACTOR * elements.length;
+        this.size = Math.min(elements.length,MAX_ARRAY_SIZE)*DEFAULT_SCALING_FACTOR;
         tree = new Node[this.size];
         build(elements,operation);
     }
@@ -76,6 +73,9 @@ public class LazySingleSegmentTree<T,U> implements SingleSegmentTree<T,U> {
     }
 
     private int insert(int elementIndex, int parentIndex, int treeIndex, int leftBoundary, int rightBoundary){
+        if (nodeIndex == size-1) {
+            throw new OutOfMemoryError("Segment tree size cannot exceed " + size);
+        }
         if(leftBoundary==rightBoundary){
             isInserted[elementIndex] = true;
             treeIndex = ++nodeIndex;

@@ -14,7 +14,7 @@ public class SingleArraySegmentTree<T, U> implements SingleSegmentTree<T, U> {
     private int size;
 
 
-    public SingleArraySegmentTree(T[] elements, BinaryOperator operation) {
+    public SingleArraySegmentTree(T[] elements, BinaryOperator<T,U> operation) {
         build(elements, operation);
     }
 
@@ -58,7 +58,7 @@ public class SingleArraySegmentTree<T, U> implements SingleSegmentTree<T, U> {
 
     @Override
     public U query(int beginIndex, int endIndex) {
-        checkBoundsBeginEnd(beginIndex, endIndex, tree.length);
+        checkBoundsBeginEnd(beginIndex, endIndex, elements.length);
         return query(0, 0, elements.length - 1, beginIndex, endIndex);
     }
 
