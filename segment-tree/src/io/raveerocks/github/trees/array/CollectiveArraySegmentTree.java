@@ -32,9 +32,8 @@ public class CollectiveArraySegmentTree<T> implements CollectiveSegmentTree<T> {
     }
 
     @Override
-    public CollectiveArraySegmentTree setElement(int index, T element) {
+    public void setElement(int index, T element) {
         if (this.elements[index]==element){
-            return this;
         }
         this.elements[index] = element;
 
@@ -44,17 +43,14 @@ public class CollectiveArraySegmentTree<T> implements CollectiveSegmentTree<T> {
             updatedLeaf[i] = operations[i].apply(element);
         }
         update(0,0,elements.length-1,index,updatedLeaf);
-        return this;
     }
 
     @Override
-    public CollectiveSegmentTree setElement(int index, T element, Object[] updatedLeaf) {
+    public void setElement(int index, T element, Object[] updatedLeaf) {
         if (this.elements[index]==element){
-            return this;
         }
         this.elements[index] = element;
         update(0,0,elements.length-1,index,updatedLeaf);
-        return this;
     }
 
     @Override

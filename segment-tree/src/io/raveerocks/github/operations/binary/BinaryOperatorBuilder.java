@@ -5,7 +5,7 @@ import io.raveerocks.github.operations.binary.math.integer.Minimum;
 import io.raveerocks.github.operations.binary.string.Concatenate;
 import io.raveerocks.github.operations.binary.math.integer.Addition;
 import io.raveerocks.github.operations.binary.math.integer.GCD;
-import io.raveerocks.github.operations.binary.math.integer.binary.SetBitCount;
+import io.raveerocks.github.operations.binary.math.integer.bit.SetBitCount;
 import io.raveerocks.github.operations.binary.string.CountCharacter;
 
 public class BinaryOperatorBuilder {

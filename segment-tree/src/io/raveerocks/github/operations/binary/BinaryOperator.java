@@ -1,12 +1,13 @@
 package io.raveerocks.github.operations.binary;
 
 public interface BinaryOperator<T, U> {
-    U getDefaultValue();
+
+    U apply(T element);
 
     U apply(U element1, U element2);
 
-    default U apply(T element) {
-        return element == null ? getDefaultValue() : (U) element;
-    }
+    U getIdentityConstant();
+
+    T getLazyConstant();
 
 }

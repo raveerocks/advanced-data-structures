@@ -5,16 +5,27 @@ import io.raveerocks.github.operations.binary.AbstractBinaryOperator;
 
 public class GCD extends AbstractBinaryOperator<Integer,Integer> {
 
-    private static Integer DEFAULT_VALUE = 0;
+    private static Integer IDENTITY_CONSTANT = 0;
+    private static Integer LAZY_CONSTANT = 0;
 
     @Override
-    public  Integer apply(Integer number1, Integer number2) {
-        return gcd(getDefaultOnNull(number1),getDefaultOnNull(number2));
+    public Integer apply(Integer element) {
+        return getIdentityOnNull(element);
     }
 
     @Override
-    public Integer getDefaultValue() {
-        return DEFAULT_VALUE;
+    public  Integer apply(Integer number1, Integer number2) {
+        return gcd(getLazyOnNullNonLeaf(number1),getLazyOnNullNonLeaf(number2));
+    }
+
+    @Override
+    public Integer getIdentityConstant() {
+        return IDENTITY_CONSTANT;
+    }
+
+    @Override
+    public Integer getLazyConstant() {
+        return LAZY_CONSTANT;
     }
 
     private int gcd(int A, int B) {

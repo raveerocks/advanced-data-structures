@@ -1,26 +1,32 @@
-package io.raveerocks.github.operations.binary.math.integer.binary;
+package io.raveerocks.github.operations.binary.math.integer.bit;
 
 import io.raveerocks.github.operations.binary.AbstractBinaryOperator;
 
 public class SetBitCount extends AbstractBinaryOperator<Integer, Integer> {
 
-    private static Integer DEFAULT_VALUE = 0;
+    private static Integer IDENTITY_CONSTANT = 0;
+    private static Integer LAZY_CONSTANT = 0;
+
+    @Override
+    public Integer apply(Integer element) {
+         element =getIdentityOnNull(element);
+        return countSetBits(element);
+    }
 
     @Override
     public Integer apply(Integer number1, Integer number2) {
-        return getDefaultOnNull(number1) + getDefaultOnNull(number2);
-    }
-
-    public Integer apply(Integer number) {
-        number = number == null ? DEFAULT_VALUE : number;
-        return countSetBits(number);
+        return getLazyOnNullNonLeaf(number1) + getLazyOnNullNonLeaf(number2);
     }
 
     @Override
-    public Integer getDefaultValue() {
-        return DEFAULT_VALUE;
+    public Integer getIdentityConstant() {
+        return IDENTITY_CONSTANT;
     }
 
+    @Override
+    public Integer getLazyConstant() {
+        return LAZY_CONSTANT;
+    }
 
     static int countSetBits(int n) {
         int count = 0;
