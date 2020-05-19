@@ -32,7 +32,7 @@ public class LazySingleSegmentTree<T,U> implements SingleSegmentTree<T,U> {
         this.elements = (T[])new Object[length];
         Arrays.fill(elements,defaultValue);
         this.isInserted = new boolean[length];
-        this.size = Math.min(elements.length,MAX_ARRAY_SIZE*DEFAULT_SCALING_FACTOR);
+        this.size = Math.min(elements.length*DEFAULT_SCALING_FACTOR,MAX_ARRAY_SIZE);
         tree = new Node[this.size];
         build(elements,operation);
     }
