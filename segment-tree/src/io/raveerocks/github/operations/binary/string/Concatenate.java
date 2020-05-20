@@ -2,7 +2,7 @@ package io.raveerocks.github.operations.binary.string;
 
 import io.raveerocks.github.operations.binary.AbstractBinaryOperator;
 
-public class Concatenate extends AbstractBinaryOperator<String,String> {
+public final class Concatenate extends AbstractBinaryOperator<String,String> {
     private static String LAZY_CONSTANT = "";
     private static String IDENTITY_CONSTANT = "";
 

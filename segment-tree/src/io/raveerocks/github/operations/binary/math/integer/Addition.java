@@ -2,7 +2,7 @@ package io.raveerocks.github.operations.binary.math.integer;
 
 import io.raveerocks.github.operations.binary.AbstractBinaryOperator;
 
-public class Addition extends AbstractBinaryOperator<Integer,Integer> {
+public final class Addition extends AbstractBinaryOperator<Integer,Integer> {
     private static Integer IDENTITY_CONSTANT = 0;
     private static Integer LAZY_CONSTANT = 0;
 

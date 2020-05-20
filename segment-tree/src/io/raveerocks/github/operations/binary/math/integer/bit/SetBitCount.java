@@ -2,7 +2,7 @@ package io.raveerocks.github.operations.binary.math.integer.bit;
 
 import io.raveerocks.github.operations.binary.AbstractBinaryOperator;
 
-public class SetBitCount extends AbstractBinaryOperator<Integer, Integer> {
+public final class SetBitCount extends AbstractBinaryOperator<Integer, Integer> {
 
     private static Integer IDENTITY_CONSTANT = 0;
     private static Integer LAZY_CONSTANT = 0;

@@ -3,7 +3,7 @@ package io.raveerocks.github.operations.binary.string;
 import io.raveerocks.github.operations.binary.AbstractBinaryOperator;
 import io.raveerocks.github.operations.binary.BinaryOperator;
 
-public class CountCharacter extends AbstractBinaryOperator<String,Integer> {
+public final class CountCharacter extends AbstractBinaryOperator<String,Integer> {
     private static int IDENTITY_CONSTANT =0;
     private static String LAZY_CONSTANT = "";
     private char character;

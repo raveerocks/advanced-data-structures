@@ -3,7 +3,7 @@ package io.raveerocks.github.operations.binary.string;
 import io.raveerocks.github.operations.binary.AbstractBinaryOperator;
 
 
-public class Prefix extends AbstractBinaryOperator<String,String> {
+public final class Prefix extends AbstractBinaryOperator<String,String> {
     private static String LAZY_CONSTANT = "";
 
     @Override

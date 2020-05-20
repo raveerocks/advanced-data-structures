@@ -8,7 +8,10 @@ import io.raveerocks.github.operations.binary.math.integer.GCD;
 import io.raveerocks.github.operations.binary.math.integer.bit.SetBitCount;
 import io.raveerocks.github.operations.binary.string.CountCharacter;
 
-public class BinaryOperatorBuilder {
+public final class BinaryOperatorBuilder {
+    private BinaryOperatorBuilder(){
+
+    }
     public static GCD getGCD() {
         return GCD.getGCD();
     }

@@ -3,7 +3,7 @@ package io.raveerocks.github.operations.binary.special;
 import io.raveerocks.github.operations.binary.AbstractBinaryOperator;
 import io.raveerocks.github.operations.binary.BinaryOperator;
 
-public class Composition extends AbstractBinaryOperator<Object,Object> {
+public final class Composition extends AbstractBinaryOperator<Object,Object> {
 
 
     BinaryOperator operator1,operator2;
