@@ -29,4 +29,6 @@ public final class BinaryOperatorBuilder {
     }
     public static SetBitCount getBinarySetBitCount(){return SetBitCount.getBinarySetBitCount();};
     public static CountCharacter getCountCharacter(){return CountCharacter.getCountCharacter();}
+    public static io.raveerocks.github.operations.binary.math.modulus.Addition getLongAddition() {
+       return io.raveerocks.github.operations.binary.math.modulus.Addition.getLongAddition(); }
 }
