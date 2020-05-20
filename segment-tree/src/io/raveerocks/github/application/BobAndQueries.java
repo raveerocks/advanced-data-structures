@@ -6,13 +6,12 @@ import io.raveerocks.github.trees.array.ArraySingleSegmentTree;
 import io.raveerocks.github.trees.lazy.LazySingleSegmentTree;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class BobAndQueries {
     public ArrayList<Integer> solve(int A, int[][] B) {
         Integer[] elements = new Integer[A];
-        for (int i=0; i<elements.length;i++){
-            elements[i]=0;
-        }
+        Arrays.fill(elements,Integer.valueOf(0));
         ArrayList<Integer> results = new ArrayList<>();
 
   SegmentTree<Integer, Integer> segmentTree = new ArraySingleSegmentTree<>(elements, BinaryOperatorBuilder.getBinarySetBitCount());
