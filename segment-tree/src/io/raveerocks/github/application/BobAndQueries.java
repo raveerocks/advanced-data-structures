@@ -48,12 +48,4 @@ public class BobAndQueries {
 
         return results;
     }
-
-    public static void main(String[] args) {
-        BobAndQueries bobAndQueries = new BobAndQueries();
-       int [][] B = {{1, 1, -1}, {1, 2, -1}, {1, 3, -1}, {3, 1, 3}, {3, 2, 4}};
-       // int [][] B = {{1, 1, -1},{1, 2, -1},{3, 1, 3},{2, 1, -1},{3, 1, 3}};
-        ArrayList<Integer> results = bobAndQueries.solve(5,B);
-        System.out.println(results);
-    }
 }
