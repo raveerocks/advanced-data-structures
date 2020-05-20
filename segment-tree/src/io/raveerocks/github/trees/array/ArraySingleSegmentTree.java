@@ -48,26 +48,27 @@ public class ArraySingleSegmentTree<T, U> extends AbstractSingleSegmentTree<T,U>
             int leftChild = getLeftChild(index);
             int rightChild = getRightChild(index);
             build(leftChild, beginIndex, middleIndex);
-            build(rightChild, middleIndex + 1, endIndex);
-            this.tree[index] = this.operator.apply(this.tree[leftChild], this.tree[rightChild]);
+            build(rightChild, Math.min(middleIndex + 1,endIndex), endIndex);
+            this.tree[index] = operator.apply(tree[leftChild], tree[rightChild]);
         }
     }
 
-    private void update(int index, int treeIndex,int beginIndex, int endIndex, U updatedLeaf) {
-        if (beginIndex == endIndex) {
+    private void update(int index, int treeIndex,int leftBoundary, int rightBoundary, U updatedLeaf) {
+        if (leftBoundary == rightBoundary) {
             tree[treeIndex] = updatedLeaf;
+            return;
         }
         else {
-            int middleIndex = (beginIndex + endIndex) >> 1;
-            int leftChild = getLeftChild(index);
-            int rightChild = getRightChild(index);
+            int middleIndex = (leftBoundary + rightBoundary) >> 1;
+            int leftChild = getLeftChild(treeIndex);
+            int rightChild = getRightChild(treeIndex);
 
             if (index <= middleIndex) {
-                update(index,leftChild, beginIndex, middleIndex,updatedLeaf);
+                update(index,leftChild, leftBoundary, middleIndex,updatedLeaf);
             } else {
-                update(index,rightChild, middleIndex + 1, endIndex,updatedLeaf);
+                update(index,rightChild, Math.min(middleIndex+1,rightBoundary), rightBoundary,updatedLeaf);
             }
-            tree[index] = operator.apply(tree[leftChild], tree[rightChild]);
+            tree[treeIndex] = operator.apply(tree[leftChild], tree[rightChild]);
         }
     }
 }
