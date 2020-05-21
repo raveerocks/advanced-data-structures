@@ -1,7 +1,6 @@
 package io.raveerocks.github.application.integer.collective;
-
-import io.raveerocks.github.operations.binary.BinaryOperator;
-import io.raveerocks.github.operations.binary.BinaryOperatorBuilder;
+import io.raveerocks.github.operations.binary.math.bit.BitBinaryOperatorBuilder;
+import io.raveerocks.github.operations.binary.math.integers.ints.IntegerBinaryOperatorBuilder;
 import io.raveerocks.github.trees.SegmentTree;
 import io.raveerocks.github.trees.array.CollectiveArraySegmentTree;
 
@@ -10,11 +9,11 @@ public class Demo {
         Integer[] numbers = {2,4,8,10,15,20,35,7,28,8,22,87,1};
 
         SegmentTree<Integer,Object[]> segmentTree = new CollectiveArraySegmentTree<>(numbers,
-                BinaryOperatorBuilder.getIntegerAddition(),
-                BinaryOperatorBuilder.getGCD(),
-                BinaryOperatorBuilder.getIntegerMaximum(),
-                BinaryOperatorBuilder.getIntegerMinimum(),
-                BinaryOperatorBuilder.getBinarySetBitCount());
+                IntegerBinaryOperatorBuilder.getIntegerSum(),
+                IntegerBinaryOperatorBuilder.getIntegerGCD(),
+                IntegerBinaryOperatorBuilder.getIntegerMaximum(),
+                IntegerBinaryOperatorBuilder.getIntegerMinimum(),
+                BitBinaryOperatorBuilder.getSetBitCount());
 
 
         System.out.println( "_____________________________________");

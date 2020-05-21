@@ -3,6 +3,9 @@ package io.raveerocks.github.trees.array;
 import io.raveerocks.github.operations.binary.BinaryOperator;
 import io.raveerocks.github.trees.AbstractSingleSegmentTree;
 
+import java.lang.reflect.Type;
+import java.util.Arrays;
+
 public class ArraySingleSegmentTree<T, U> extends AbstractSingleSegmentTree<T,U> {
     private U[] tree;
 
@@ -71,4 +74,9 @@ public class ArraySingleSegmentTree<T, U> extends AbstractSingleSegmentTree<T,U>
             tree[treeIndex] = operator.apply(tree[leftChild], tree[rightChild]);
         }
     }
+
+    protected U[] getRawTree(){
+        return tree;
+    }
+
 }

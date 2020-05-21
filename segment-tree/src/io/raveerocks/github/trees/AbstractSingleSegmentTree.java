@@ -84,9 +84,12 @@ public abstract class AbstractSingleSegmentTree<T, U> implements SingleSegmentTr
     }
 
     private void checkBoundsBeginEnd(int beginIndex, int endIndex, int length) {
-        if (beginIndex < 0 || beginIndex > endIndex || endIndex > length) {
+        if (beginIndex < 0 || beginIndex > endIndex || endIndex >= length) {
             throw new ArrayIndexOutOfBoundsException("begin " + beginIndex + ", end " + endIndex + ", length " + length);
         }
     }
+
+
+
 
 }

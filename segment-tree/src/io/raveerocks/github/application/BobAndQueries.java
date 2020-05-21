@@ -1,6 +1,7 @@
 package io.raveerocks.github.application;
 
-import io.raveerocks.github.operations.binary.BinaryOperatorBuilder;
+
+import io.raveerocks.github.operations.binary.math.bit.BitBinaryOperatorBuilder;
 import io.raveerocks.github.trees.SegmentTree;
 import io.raveerocks.github.trees.array.ArraySingleSegmentTree;
 import io.raveerocks.github.trees.lazy.LazySingleSegmentTree;
@@ -14,8 +15,8 @@ public class BobAndQueries {
         Arrays.fill(elements,Integer.valueOf(0));
         ArrayList<Integer> results = new ArrayList<>();
 
-  SegmentTree<Integer, Integer> segmentTree = new ArraySingleSegmentTree<>(elements, BinaryOperatorBuilder.getBinarySetBitCount());
-    // SegmentTree<Integer, Integer> segmentTree = new LazySingleSegmentTree<>(elements.length, BinaryOperatorBuilder.getBinarySetBitCount());
+  SegmentTree<Integer, Integer> segmentTree = new ArraySingleSegmentTree<>(elements, BitBinaryOperatorBuilder.getSetBitCount());
+ //    SegmentTree<Integer, Integer> segmentTree = new LazySingleSegmentTree<>(elements.length, BinaryOperatorBuilder.getBinarySetBitCount());
         for (int i = 0; i < B.length; i++) {
             int x = B[i][0], y = B[i][1]-1, z = B[i][2]-1;
             if (y >= 0 && y < elements.length) {

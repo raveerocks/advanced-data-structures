@@ -1,6 +1,6 @@
 package io.raveerocks.github.application;
 
-import io.raveerocks.github.operations.binary.BinaryOperatorBuilder;
+import io.raveerocks.github.operations.binary.math.integers.longs.LongBinaryOperatorBuilder;
 import io.raveerocks.github.trees.SegmentTree;
 import io.raveerocks.github.trees.array.ArraySingleSegmentTree;
 
@@ -19,8 +19,8 @@ public class SpecialSums {
             product[i+1] = ((long)(i+1)*(A[i]))%MODULUS;
         }
 
-        SegmentTree<Long,Long> elementTree = new ArraySingleSegmentTree<>(elements, BinaryOperatorBuilder.getLongAddition());
-        SegmentTree<Long,Long> productTree = new ArraySingleSegmentTree<>(product, BinaryOperatorBuilder.getLongAddition());
+        SegmentTree<Long,Long> elementTree = new ArraySingleSegmentTree<>(elements, LongBinaryOperatorBuilder.getLongModulusSum(MODULUS));
+        SegmentTree<Long,Long> productTree = new ArraySingleSegmentTree<>(product, LongBinaryOperatorBuilder.getLongModulusSum(MODULUS));
 
         ArrayList<Integer> results = new ArrayList<>();
 

@@ -1,6 +1,6 @@
 package io.raveerocks.github.application.integer.single.array;
 
-import io.raveerocks.github.operations.binary.BinaryOperatorBuilder;
+import io.raveerocks.github.operations.binary.math.integers.ints.IntegerBinaryOperatorBuilder;
 import io.raveerocks.github.trees.SegmentTree;
 import io.raveerocks.github.trees.array.ArraySingleSegmentTree;
 
@@ -8,7 +8,7 @@ public class Minimum {
 
     public static void main(String[] args) {
         Integer[] numbers = {2,4,8,10,15,20,35,7,28,8,22,87,1};
-        SegmentTree<Integer,Integer> segmentTree = new ArraySingleSegmentTree<>(numbers, BinaryOperatorBuilder.getIntegerMinimum());
+        SegmentTree<Integer,Integer> segmentTree = new ArraySingleSegmentTree<>(numbers, IntegerBinaryOperatorBuilder.getIntegerMinimum());
         printTree(segmentTree,numbers.length);
     }
 

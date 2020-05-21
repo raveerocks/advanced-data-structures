@@ -1,7 +1,7 @@
 package io.raveerocks.github.application;
 
 
-import io.raveerocks.github.operations.binary.BinaryOperatorBuilder;
+import io.raveerocks.github.operations.binary.math.integers.ints.IntegerBinaryOperatorBuilder;
 import io.raveerocks.github.trees.SegmentTree;
 import io.raveerocks.github.trees.array.ArraySingleSegmentTree;
 
@@ -21,7 +21,7 @@ public class DistinctNumbers {
 
         Integer[] elements = new Integer[A.length + 1];
         Arrays.fill(elements, Integer.valueOf(0));
-        SegmentTree<Integer, Integer> segmentTree = new ArraySingleSegmentTree<>(elements, BinaryOperatorBuilder.getIntegerAddition());
+        SegmentTree<Integer, Integer> segmentTree = new ArraySingleSegmentTree<>(elements, IntegerBinaryOperatorBuilder.getIntegerSum());
         int[] results = new int[B.length];
         HashMap<Integer, Integer> lastIndex = new HashMap<>();
 

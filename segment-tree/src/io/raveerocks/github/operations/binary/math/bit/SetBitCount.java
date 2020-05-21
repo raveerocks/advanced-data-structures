@@ -1,20 +1,21 @@
-package io.raveerocks.github.operations.binary.math.integer;
+package io.raveerocks.github.operations.binary.math.bit;
 
 import io.raveerocks.github.operations.binary.AbstractBinaryOperator;
 
-public final class Addition extends AbstractBinaryOperator<Integer,Integer> {
+public final class SetBitCount extends AbstractBinaryOperator<Integer, Integer> {
+
     private static Integer IDENTITY_CONSTANT = 0;
     private static Integer LAZY_CONSTANT = 0;
 
-
     @Override
     public Integer apply(Integer element) {
-        return getIdentityOnNull(element);
+         element =getIdentityOnNull(element);
+        return countSetBits(element);
     }
 
     @Override
     public Integer apply(Integer number1, Integer number2) {
-        return getLazyOnNullNonLeaf(number1)+getLazyOnNullNonLeaf(number2);
+        return getLazyOnNullNonLeaf(number1) + getLazyOnNullNonLeaf(number2);
     }
 
     @Override
@@ -27,13 +28,16 @@ public final class Addition extends AbstractBinaryOperator<Integer,Integer> {
         return LAZY_CONSTANT;
     }
 
-    private Addition(){ }
-
-    static class DefaultInstance{
-        private static Addition defaultSingletonInstance = new Addition();
+    static int countSetBits(int n) {
+        int count = 0;
+        while (n > 0) {
+            n &= (n - 1);
+            count++;
+        }
+        return count;
     }
 
-    public synchronized static Addition getIntegerAddition() {
-        return DefaultInstance.defaultSingletonInstance;
+    protected SetBitCount() {
     }
+
 }

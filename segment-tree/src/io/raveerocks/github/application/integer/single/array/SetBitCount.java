@@ -1,6 +1,6 @@
 package io.raveerocks.github.application.integer.single.array;
 
-import io.raveerocks.github.operations.binary.BinaryOperatorBuilder;
+import io.raveerocks.github.operations.binary.math.bit.BitBinaryOperatorBuilder;
 import io.raveerocks.github.trees.SegmentTree;
 import io.raveerocks.github.trees.array.ArraySingleSegmentTree;
 
@@ -8,7 +8,7 @@ public class SetBitCount {
 
     public static void main(String[] args) {
         Integer[] numbers = {2,4,8,10,15,20,35,7,28,8,22,87,1};
-        SegmentTree<Integer,Integer> segmentTree = new ArraySingleSegmentTree<>(numbers, BinaryOperatorBuilder.getBinarySetBitCount());
+        SegmentTree<Integer,Integer> segmentTree = new ArraySingleSegmentTree<>(numbers, BitBinaryOperatorBuilder.getSetBitCount());
         printTree(segmentTree,numbers.length);
     }
 
